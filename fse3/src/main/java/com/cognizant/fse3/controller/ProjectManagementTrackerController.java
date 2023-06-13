@@ -1,12 +1,11 @@
 package com.cognizant.fse3.controller;
 
-import com.cognizant.fse3.model.Member;
+import com.cognizant.fse3.model.MemberResource;
 import com.cognizant.fse3.service.ProjectManagementTrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,12 +16,12 @@ public class ProjectManagementTrackerController {
     private ProjectManagementTrackerService service;
 
     @PostMapping(value = "/add-member")
-    public Member addNewMember(@RequestBody Member member) {
+    public Long addNewMember(@Valid @RequestBody MemberResource member) {
         return service.addNewMember(member);
     }
 
     @GetMapping(value = "/list/memberDetails")
-    public List<Member> fetchAllMembers() {
+    public List<MemberResource> fetchAllMembers() {
         return service.retrieveAllMemberDetails();
     }
 
@@ -32,7 +31,7 @@ public class ProjectManagementTrackerController {
     }
 
     @PutMapping(value = "/update/{id}/allocationPercentage")
-    public void updateAllocation(@PathVariable int id){
-        service.updateAllocationPercentage(id);
+    public MemberResource updateAllocation(@PathVariable long id){
+       return service.updateAllocationPercentage(id);
     }
 }

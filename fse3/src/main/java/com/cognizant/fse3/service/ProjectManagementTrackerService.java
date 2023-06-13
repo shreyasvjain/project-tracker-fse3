@@ -1,13 +1,13 @@
 package com.cognizant.fse3.service;
 
-import com.cognizant.fse3.model.Member;
+import com.cognizant.fse3.model.MemberResource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public interface ProjectManagementTrackerService {
-    public Member addNewMember(Member member);
-    public List<Member> retrieveAllMemberDetails();
+    public Long addNewMember(MemberResource member);
+    public List<MemberResource> retrieveAllMemberDetails();
     public void assignTask();
-    public void updateAllocationPercentage(int memberId);
+    public MemberResource updateAllocationPercentage(long memberId);
 }

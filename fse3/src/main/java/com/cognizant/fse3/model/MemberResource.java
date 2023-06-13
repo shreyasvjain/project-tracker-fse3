@@ -1,36 +1,25 @@
 package com.cognizant.fse3.model;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
+import java.util.List;
 
-@Entity
-@Table(name = "member")
-public class Member {
-
-    @Column(name = "name")
+public class MemberResource {
+    @NotNull
     private String name;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "yearsOfExperiance")
+    private long id;
     private int yearsOfExperiance;
-
-    @Column(name = "skillSet")
-    private String skillSet;
-
-    @Column(name = "additionalDescription")
+    private List<String> skillSet;
     private String additionalDescription;
-
-    @Column(name = "projectStartDt")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate projectStartDt;
-
-    @Column(name = "projectEndDt")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate projectEndDt;
-
-    @Column(name = "allocationPercentage")
     private int allocationPercentage;
+    private TaskDetailsResource taskDetails;
 
     public String getName() {
         return name;
@@ -40,11 +29,11 @@ public class Member {
         this.name = name;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -56,11 +45,11 @@ public class Member {
         this.yearsOfExperiance = yearsOfExperiance;
     }
 
-    public String getSkillSet() {
+    public List<String> getSkillSet() {
         return skillSet;
     }
 
-    public void setSkillSet(String skillSet) {
+    public void setSkillSet(List<String> skillSet) {
         this.skillSet = skillSet;
     }
 
@@ -96,4 +85,11 @@ public class Member {
         this.allocationPercentage = allocationPercentage;
     }
 
+    public TaskDetailsResource getTaskDetails() {
+        return taskDetails;
+    }
+
+    public void setTaskDetails(TaskDetailsResource taskDetails) {
+        this.taskDetails = taskDetails;
+    }
 }
