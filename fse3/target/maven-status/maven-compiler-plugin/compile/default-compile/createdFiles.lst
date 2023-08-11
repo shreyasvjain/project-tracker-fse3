@@ -1,1 +1,9 @@
+com\cognizant\fse3\model\Member.class
+com\cognizant\fse3\service\ProjectManagementTrackerServiceImpl.class
 com\cognizant\fse3\Fse3Application.class
+com\cognizant\fse3\repository\ProjectManagementTrackerRepository.class
+com\cognizant\fse3\model\MemberResource.class
+com\cognizant\fse3\controller\ProjectManagementTrackerController.class
+com\cognizant\fse3\service\ProjectManagementTrackerService.class
+com\cognizant\fse3\Exception\ProjectManagementTrackerExceptionHandler.class
+com\cognizant\fse3\model\TaskDetailsResource.class
